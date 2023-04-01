@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bank.css">
+
+</head>
+<body>
+    <div>
+    <input id="dep" type="number" placeholder="Enter the amount">
+    <button id="dbtn" onclick="deposite()">Deposite</button><br>
+    <input type="number" id="wid" placeholder="Enter the amount">
+    <button id="with" onclick="withdraw()">Withdraw</button><br>
+    <button id="bal" onclick="balance()">Balance</button>
+    <h3 id="p"></h3>
+    <h3 id="p1">Welcome To bank</h3>
+    </div>
+    <script>
+        var b=0;
+        function deposite(){
+            var d=document.getElementById("dep").value;
+            if(d<=0||d==undefined){
+                alert("Enter a valid number");
+                document.getElementById("dep").value="";
+            }else{
+                b+=Number(d);
+                document.getElementById("p1").innerHTML="Current amount = "+b;
+                document.getElementById("dep").value="";
+                document.getElementById("p").innerHTML="";
+
+            }
+        }
+        function withdraw(){
+            var w=document.getElementById("wid").value;
+            if(w<=0||w==undefined){
+                alert("Enter a valid number");
+                document.getElementById("wid").value="";
+            }
+            if(b<w){
+                alert("not inough balance");
+                document.getElementById("wid").value="";
+
+            }
+            else{
+                b-=Number(w);
+                document.getElementById("p1").innerHTML="Current amount = "+b;
+                document.getElementById("wid").value="";
+                document.getElementById("p").innerHTML="";
+
+            }
+        }
+        function balance(){
+            document.getElementById("p").innerHTML="Current balance = "+b;
+            document.getElementById("p1").innerHTML="Thank you for visit";
+            
+        }
+    </script>
+
+</script>
+    
+</body>
+</html>
